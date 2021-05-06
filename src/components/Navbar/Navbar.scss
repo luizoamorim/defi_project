@@ -1,0 +1,25 @@
+.navbar {
+    background: #6ebd87;
+    padding: 0.4rem 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .navbar-brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+
+        .navbar-img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .navbar-brand-title {
+        margin-left: 0.8rem;
+        color: #fff;
+        font-family: 'Ubuntu', sans-serif;
+    }
+}
+
