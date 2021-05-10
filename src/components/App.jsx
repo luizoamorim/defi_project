@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from './Navbar/Navbar'
+
 import './App.scss'
 import Web3 from 'web3';
 import DaiToken from '../abis/DaiToken.json';
 import DappToken from '../abis/DappToken.json';
 import TokenFarm from '../abis/TokenFarm.json';
+import Navbar from './Navbar/Navbar';
+import Main from './Main/Main';
+
 
 
 const App = () => {
@@ -80,19 +83,41 @@ const App = () => {
       window.alert("Non-Ethereum browser detected. You should consider trying Metamask!");
     }
   }
+
+  const stakeTokens = (amount) => {
+    setLoading(true);
+    daiToken.methods.approve(tokenFarm._address, amount).send({ from: account }).on('transactionHash', (hash) => {
+      tokenFarm.methods.stakeTokens(amount).send({ from: account}).on('transactionHash', (hash) => {
+        setLoading(false)
+      })
+    })
+  }
+
+  const unstakeTokens = (amount) => {
+    setLoading(true);    
+    tokenFarm.methods.unstakeTokens().send({ from: account}).on('transactionHash', (hash) => {
+      setLoading(false)
+    })    
+  }
+
+  let content;
+  
+  if(loading){
+    content = <p id="loader" className="text-center">Loading...</p>
+  }else{
+    content = <Main 
+      daiTokenBalance={daiTokenBalance}
+      dappTokenBalance={dappTokenBalance}
+      stakingBalance={stakingBalance}
+      stakeTokens={stakeTokens}
+      unstakeTokens={unstakeTokens}
+    />
+  }
   
   return (
     <div>
-      <Navbar account={account} />
-      <div className="container">        
-        <main role="main" className="main" style={{ maxWidth: '600px' }}>
-          <div className="content">              
-
-            <h1 data-testid="content-title">Hello, World!</h1>
-
-          </div>
-        </main>        
-      </div>
+      <Navbar account={account} />                          
+      {content}                      
     </div>
   );
   
