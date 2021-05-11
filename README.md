@@ -46,3 +46,6 @@ So a client can invest on our app with Mock Dai Tokens and if the investor have 
 
 # Project result
 ![image](https://user-images.githubusercontent.com/73957838/117741906-e7359480-b1d9-11eb-9bc3-09ebc8e13980.png)
+
+# References
+This project is based on this video from Dapp University: https://www.youtube.com/watch?v=CgXQC4dbGUE&t=1103s
