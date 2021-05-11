@@ -31,11 +31,11 @@ truffle init
 ```
 - For that we'll need the truffle installed in your machine.
 
-## Contract 1
+## Contract 1 - mDai Token
 We will create a Mock Dai Token. The example gonna use this token like example because it is a stable criptocurrency. So it is very usefull on defi environment because its price doesn't change.
 Another important Dai characterist is that it is a ERC20 token.
 
-## Contract 2
+## Contract 2 - Dapp Token
 We'll create a fake token to rewards users that investing on our app.
 
 ## Contract 3 - Token Farm
@@ -43,3 +43,6 @@ It'll be like a digital bank. Investors can transfer mDai for the farm and be re
 
 ## Rewards
 So a client can invest on our app with Mock Dai Tokens and if the investor have mDai in the moment that the contract owner run the rewards script it will be rewarded.
+
+# Project result
+![image](https://user-images.githubusercontent.com/73957838/117741906-e7359480-b1d9-11eb-9bc3-09ebc8e13980.png)
